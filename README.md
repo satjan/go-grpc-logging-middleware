@@ -1,5 +1,6 @@
 # go-grpc-logging-middleware
 
+```go
 logger := logrus.New()
 logger.SetReportCaller(true)
 logger.SetFormatter(&logrus.JSONFormatter{
@@ -23,3 +24,5 @@ if err == nil {
 grpcServer := grpc.NewServer(
   grpc.UnaryInterceptor(go_grpc_logging_middleware.LoggingInterceptor(logger)),
 )
+
+```
