@@ -1,4 +1,4 @@
-package logger
+package logging_middleware
 
 import (
 	"context"
