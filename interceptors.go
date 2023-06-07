@@ -17,7 +17,7 @@ func LoggingInterceptor(logger *logrus.Logger) grpc.UnaryServerInterceptor {
 		resp, err := handler(context.WithValue(ctx, "traceID", traceID), req)
 
 		if err != nil {
-			logger.WithError(err).Errorf("%s Error: %s ", traceID, err.Error())
+			logger.Warnf("%s Error: %s ", traceID, err.Error())
 		} else {
 			// Log the response body
 			logger.Infof("%s  Method: %s, Response body: %v", traceID, info.FullMethod, resp)
